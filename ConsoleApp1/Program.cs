@@ -1,15 +1,14 @@
-﻿
-using SimpleGeometricFigures;
-
-namespace HelloWorld
+﻿namespace SimpleGeometricFigures
 {
   class Program
   {
     static void Main(string[] args)
     {
-      Point point = new(1.0,1.0);
-      // Line line = new(point, point);
-      Console.WriteLine(point.Rotate(90.0));
+      Point start = new(1.0,1.0);
+      Circle circle = new(start, 10);
+      // Point end = new(2.0,2.0);
+      // Line line = new(start, end);
+      Console.WriteLine(circle.Rotate(90));
       Console.ReadLine();
     }
   }
