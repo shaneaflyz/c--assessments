@@ -7,9 +7,9 @@ namespace HelloWorld
   {
     static void Main(string[] args)
     {
-      Point point = new(2.4,3.6);
-      Line line = new(point, point);
-      Console.WriteLine(line.ToString());
+      Point point = new(1.0,1.0);
+      // Line line = new(point, point);
+      Console.WriteLine(point.Rotate(90.0));
       Console.ReadLine();
     }
   }
