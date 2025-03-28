@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFigureTask", "ConsoleApp1\SimpleFigureTask.csproj", "{408DB3E8-EBFE-4DFF-98AB-72FBD6700557}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFigureTask", "SimpleFigureTask\SimpleFigureTask.csproj", "{408DB3E8-EBFE-4DFF-98AB-72FBD6700557}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromeTask", "PalindromeTask\PalindromeTask.csproj", "{B2C90F17-5CB3-4974-8FA3-153FC84EE834}"
 EndProject
