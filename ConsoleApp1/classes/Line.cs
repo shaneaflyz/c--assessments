@@ -21,6 +21,12 @@ namespace SimpleGeometricFigures
       return rotatedLine;
     }
 
+    public void Move(double x, double y)
+    {
+      Start.Move(x,y);
+      End.Move(x,y);
+    }
+
     public override string ToString()
     {
       return $"start: {Start}, End: {End}";

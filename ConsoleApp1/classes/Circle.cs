@@ -21,6 +21,11 @@ namespace SimpleGeometricFigures
       return rotatedCircle;
     }
 
+    public void Move(double x, double y)
+    {
+      Center.Move(x,y);
+    }
+
     public override string ToString()
     {
       return $"center: {Center}, radius: {Radius}";
