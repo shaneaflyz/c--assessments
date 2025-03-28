@@ -1,6 +1,6 @@
 namespace SimpleGeometricFigures
 {
-  public class Line(Point start, Point end)
+  public class Line(Point start, Point end) : IGeometricFigure
   {
 
     public Point Start

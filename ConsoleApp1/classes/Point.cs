@@ -1,6 +1,6 @@
 namespace SimpleGeometricFigures
 {
-  public class Point(double x, double y)
+  public class Point(double x, double y) : IGeometricFigure
   {
     public double X
     {

@@ -1,6 +1,6 @@
 namespace SimpleGeometricFigures
 {
-  public class Circle(Point center, double radius)
+  public class Circle(Point center, double radius) : IGeometricFigure
   {
 
     public Point Center
