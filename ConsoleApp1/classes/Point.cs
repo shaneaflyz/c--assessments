@@ -14,16 +14,11 @@ namespace SimpleGeometricFigures
 
     //  x' = x * cos(θ) - y * sin(θ)
     //  y' = x * sin(θ) + y * cos(θ)
-    public Point Rotate(double rotationDegree)
+    public void Rotate(double rotationDegree)
     {
       double rotationRadians = rotationDegree * (Math.PI / 180);
-      Point rotatedPoint = new(X, Y)
-      {
-        X = X * Math.Cos(rotationRadians) - Y * Math.Sin(rotationRadians),
-        Y = X * Math.Cos(rotationRadians) + Y * Math.Sin(rotationRadians)
-      };
-
-      return rotatedPoint;
+      X = X * Math.Cos(rotationRadians) - Y * Math.Sin(rotationRadians);
+      Y = X * Math.Cos(rotationRadians) + Y * Math.Sin(rotationRadians);
     }
 
     public void Move(double x, double y)

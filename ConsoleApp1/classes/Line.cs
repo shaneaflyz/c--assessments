@@ -13,18 +13,16 @@ namespace SimpleGeometricFigures
       get; set;
     } = end;
 
-    public Line Rotate(double rotationDegree) {
-      Line rotatedLine =  new(Start, End);
-      rotatedLine.Start = rotatedLine.Start.Rotate(rotationDegree);
-      rotatedLine.End = rotatedLine.End.Rotate(rotationDegree);
-
-      return rotatedLine;
+    public void Rotate(double rotationDegree)
+    {
+      Start.Rotate(rotationDegree);
+      End.Rotate(rotationDegree);
     }
 
     public void Move(double x, double y)
     {
-      Start.Move(x,y);
-      End.Move(x,y);
+      Start.Move(x, y);
+      End.Move(x, y);
     }
 
     public override string ToString()

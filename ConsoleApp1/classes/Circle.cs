@@ -13,17 +13,14 @@ namespace SimpleGeometricFigures
       get; set;
     } = radius;
 
-    public Circle Rotate(double rotationDegree)
+    public void Rotate(double rotationDegree)
     {
-      Circle rotatedCircle = new(Center, Radius);
-      rotatedCircle.Center = rotatedCircle.Center.Rotate(rotationDegree);
-
-      return rotatedCircle;
+      Center.Rotate(rotationDegree);
     }
 
     public void Move(double x, double y)
     {
-      Center.Move(x,y);
+      Center.Move(x, y);
     }
 
     public override string ToString()
