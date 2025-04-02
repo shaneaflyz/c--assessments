@@ -28,8 +28,8 @@ class Minesweeper
     { 0, 0, 0, 1, 0 }
   };
 
-  private static readonly int rows = 5;
-  private static readonly int cols = 5;
+  private static readonly int rows = grid.GetLength(0);
+  private static readonly int cols = grid.GetLength(1);
   static (int, int) start = (0, 0);
   static (int, int) goal = (4, 4);
   static readonly int[,] directions = {
@@ -41,7 +41,7 @@ class Minesweeper
   static int BFS()
   {
     // stores ((x, y), distance)
-    Queue<((int, int), int)> queue = new(); 
+    Queue<((int, int), int)> queue = new();
     HashSet<(int, int)> visited = [];
 
     queue.Enqueue((start, 0));
@@ -50,18 +50,18 @@ class Minesweeper
     while (queue.Count > 0)
     {
       // get current position and distance
-      var (pos, dist) = queue.Dequeue(); 
+      var (pos, dist) = queue.Dequeue();
       int x = pos.Item1, y = pos.Item2;
 
       // if we reached goal, return the distance
-      if (pos == goal) return dist; 
+      if (pos == goal) return dist;
 
       for (int i = 0; i < directions.GetLength(0); i++)
       {
         // change in row
         int newX = x + directions[i, 0];
 
-        //change in column
+        // change in column
         int newY = y + directions[i, 1];
 
         bool isValidIndex = newX >= 0 && newY >= 0 && newX < rows && newY < cols;
@@ -75,7 +75,7 @@ class Minesweeper
         }
       }
     }
-    return -1; // No path found
+    return -1; // no path found
   }
 
   static void Main()
