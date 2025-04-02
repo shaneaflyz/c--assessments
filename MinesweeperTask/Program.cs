@@ -65,10 +65,10 @@ class Minesweeper
         int newY = y + directions[i, 1];
 
         bool isValidIndex = newX >= 0 && newY >= 0 && newX < rows && newY < cols;
-        bool isPathSafe = grid[newX, newY] == 0;
-        bool isPathUnvisited = !visited.Contains((newX, newY));
+        bool isPathSafe = isValidIndex && grid[newX, newY] == 0;
+        bool isPathUnvisited = isValidIndex && !visited.Contains((newX, newY));
 
-        if (isValidIndex && isPathSafe && isPathUnvisited)
+        if (isPathSafe && isPathUnvisited)
         {
           queue.Enqueue(((newX, newY), dist + 1));
           visited.Add((newX, newY));
