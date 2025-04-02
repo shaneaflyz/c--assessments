@@ -16,6 +16,9 @@
 */
 class Minesweeper
 {
+
+  // 1 is bomb
+  // 0 is safe space
   static readonly int[,] grid =
   {
     { 0, 0, 0, 0, 1 },
@@ -34,10 +37,11 @@ class Minesweeper
     { -1, -1 }, { -1, 1 }, { 1, -1 }, { 1, 1 } // up left, up right, down left, down right
   };
 
-// use breadth first search algorithm to search through the shortest path to safety
+  // use breadth first search algorithm to search through the shortest path to safety
   static int BFS()
   {
-    Queue<((int, int), int)> queue = new();
+    // stores ((x, y), distance)
+    Queue<((int, int), int)> queue = new(); 
     HashSet<(int, int)> visited = [];
 
     queue.Enqueue((start, 0));
@@ -45,17 +49,29 @@ class Minesweeper
 
     while (queue.Count > 0)
     {
-      var ((x, y), dist) = queue.Dequeue();
-      if ((x, y) == goal) return dist;
+      // get current position and distance
+      var (pos, dist) = queue.Dequeue(); 
+      int x = pos.Item1, y = pos.Item2;
+
+      // if we reached goal, return the distance
+      if (pos == goal) return dist; 
 
       for (int i = 0; i < directions.GetLength(0); i++)
       {
-        int nx = x + directions[i, 0];
-        int ny = y + directions[i, 1];
-        if (nx >= 0 && ny >= 0 && nx < rows && ny < cols && grid[nx, ny] == 0 && !visited.Contains((nx, ny)))
+        // change in row
+        int newX = x + directions[i, 0];
+
+        //change in column
+        int newY = y + directions[i, 1];
+
+        bool isValidIndex = newX >= 0 && newY >= 0 && newX < rows && newY < cols;
+        bool isPathSafe = grid[newX, newY] == 0;
+        bool isPathUnvisited = !visited.Contains((newX, newY));
+
+        if (isValidIndex && isPathSafe && isPathUnvisited)
         {
-          queue.Enqueue(((nx, ny), dist + 1));
-          visited.Add((nx, ny));
+          queue.Enqueue(((newX, newY), dist + 1));
+          visited.Add((newX, newY));
         }
       }
     }
